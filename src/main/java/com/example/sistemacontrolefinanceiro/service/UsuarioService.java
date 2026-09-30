@@ -12,10 +12,18 @@ public class UsuarioService {
     }
 
     public Usuario cadastrarUsuario(Usuario usuario) {
-        boolean emailJaExistente = usuarioRepository.existsByEmail(usuario.getEmail());
-         if (emailJaExistente == true) {
-            throw new RuntimeException("E-mail ja foi cadastrado");
+        boolean emailJaExistente = usuarioRepository.existsByEmailAndIdNot(usuario.getEmail());
+        if (emailJaExistente ) {
+            throw new RuntimeException("E-mail ja foi cadastrado");}
+        return usuarioRepository.save(usuario);
+   }
+
+    public Usuario atualizarUsuario(Usuario usuario) {
+        boolean emaiilPertenceAOutroUsuario = usuarioRepository.existsByEmailAndIdNot(usuario.getEmail(), usuario.getId());
+        if (emaiilPertenceAOutroUsuario) {
+            throw new RuntimeException("E-mail pertence a outro usuario");
         }
-            return usuarioRepository.salvarUsuario(usuario);
-        }
+        return usuarioRepository.save(usuario);
     }
+
+}

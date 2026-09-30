@@ -1,16 +1,10 @@
 package com.example.sistemacontrolefinanceiro.repository;
 
 import com.example.sistemacontrolefinanceiro.model.Usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public class UsuarioRepository {
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    public boolean existsByEmail(String email) {
-
-        return false;
-    }
-
-    public Usuario salvarUsuario(Usuario usuario) {
-        return usuario;
-    }
-
+    boolean existsByEmailAndIdNot(String email, Long id);
+    boolean existsByEmailAndIdNot(String email);
 }
