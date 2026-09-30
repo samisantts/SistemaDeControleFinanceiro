@@ -1,3 +1,7 @@
 spring:
   application:
     name: sistemacontrolefinanceiro
+  datasource:
+    url: jdbc:postgresql://localhost:5432/financeiro.
+    username: samisantos
+    password: 81328604
