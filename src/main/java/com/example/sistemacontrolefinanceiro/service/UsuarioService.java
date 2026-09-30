@@ -15,8 +15,7 @@ public class UsuarioService {
         boolean emailJaExistente = usuarioRepository.existsByEmail(usuario.getEmail());
          if (emailJaExistente == true) {
             throw new RuntimeException("E-mail ja foi cadastrado");
-        } else {
+        }
             return usuarioRepository.salvarUsuario(usuario);
         }
     }
-}
