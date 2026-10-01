@@ -30,6 +30,10 @@ public class UsuarioService {
     }
 
     public void deletarUsuario(Long id) {
+        boolean usuarioExiste = usuarioRepository.existsById(id);
+        if (!usuarioExiste) {
+            throw new RuntimeException("Id nao encontrado");
+        }
         usuarioRepository.deleteById(id);
     }
 }
