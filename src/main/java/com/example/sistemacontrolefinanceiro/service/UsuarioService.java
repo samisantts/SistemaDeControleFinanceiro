@@ -36,4 +36,8 @@ public class UsuarioService {
         }
         usuarioRepository.deleteById(id);
     }
+
+    public Usuario login(String email, String senha) {
+    }
+
 }
