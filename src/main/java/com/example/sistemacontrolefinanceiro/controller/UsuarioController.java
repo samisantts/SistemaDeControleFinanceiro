@@ -18,6 +18,7 @@ public class UsuarioController {
      @PostMapping ("/usuarios")
     public Usuario cadastrar(Usuario usuario) {
         return usuarioService.cadastrarUsuario(usuario);
+
     }
         }
 
