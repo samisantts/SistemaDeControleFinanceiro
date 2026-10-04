@@ -2,7 +2,9 @@ package com.example.sistemacontrolefinanceiro.service;
 
 import com.example.sistemacontrolefinanceiro.model.Usuario;
 import com.example.sistemacontrolefinanceiro.repository.UsuarioRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsuarioService {
 
     private UsuarioRepository usuarioRepository;
@@ -20,12 +22,10 @@ public class UsuarioService {
         if (emailPertenceAOutroUsuario) {
             throw new RuntimeException("E-mail pertence a outro usuario");
         }
-
         boolean usuarioExiste = usuarioRepository.existsById(usuario.getId());
         if (!usuarioExiste) {
             throw new RuntimeException("Usuario nao encontrado");
         }
-
         return usuarioRepository.save(usuario);
     }
 
@@ -37,7 +37,6 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
     }
 
-    public Usuario login(String email, String senha) {
-    }
+ }
 
-}
+
