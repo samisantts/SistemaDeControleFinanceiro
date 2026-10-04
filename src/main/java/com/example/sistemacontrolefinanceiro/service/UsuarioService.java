@@ -9,6 +9,10 @@ public class UsuarioService {
 
     private UsuarioRepository usuarioRepository;
 
+    public UsuarioService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
+
     public Usuario cadastrarUsuario(Usuario usuario) {
         boolean emailJaExistente = usuarioRepository.existsByEmail(usuario.getEmail());
         if (emailJaExistente) {
@@ -36,7 +40,10 @@ public class UsuarioService {
         }
         usuarioRepository.deleteById(id);
     }
+    public Usuario login (String email, String senha) {
+        boolean usuarioLogin = usuarioRepository.existsByEmailAndIdNot();
+        if (usuarioLogin) {
 
- }
-
-
+        }
+    }
+}
