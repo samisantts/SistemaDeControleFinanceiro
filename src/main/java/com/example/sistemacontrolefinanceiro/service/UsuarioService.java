@@ -46,4 +46,13 @@ public class UsuarioService {
 
         throw new  RuntimeException("Senha incorreta");
     }
+
+    public void deletarUsuario(Long id) {
+        boolean usuarioExiste = usuarioRepository.existsById(id);
+        if (!usuarioExiste) {
+            throw new RuntimeException("Id nao encontrado");
+        }
+        usuarioRepository.deleteById(id);
+    }
 }
+

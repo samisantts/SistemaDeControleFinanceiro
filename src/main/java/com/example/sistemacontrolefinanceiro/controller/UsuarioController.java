@@ -2,9 +2,7 @@ package com.example.sistemacontrolefinanceiro.controller;
 
 import com.example.sistemacontrolefinanceiro.model.Usuario;
 import com.example.sistemacontrolefinanceiro.service.UsuarioService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UsuarioController {
@@ -25,7 +23,12 @@ public class UsuarioController {
     public Usuario atualizar(Usuario usuario) {
         return usuarioService.atualizarUsuario(usuario);
     }
-        }
+    @PutMapping("/loginusuario")
+    public Usuario login (@RequestBody Usuario usuario) {
+        return  usuarioService.loginUsuario(usuario);
+    }
+}
+
 
 
 
