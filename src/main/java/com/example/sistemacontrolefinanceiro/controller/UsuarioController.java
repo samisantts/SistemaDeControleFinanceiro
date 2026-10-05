@@ -15,17 +15,21 @@ public class UsuarioController {
 
     }
      @PostMapping ("/usuarios")
-    public Usuario cadastrar(Usuario usuario) {
+    public Usuario cadastrar(@RequestBody Usuario usuario) {
         return usuarioService.cadastrarUsuario(usuario);
 
     }
-    @PutMapping("/atualizarcadastro")
-    public Usuario atualizar(Usuario usuario) {
+    @PostMapping("/atualizarcadastro")
+    public Usuario atualizar(@RequestBody Usuario usuario) {
         return usuarioService.atualizarUsuario(usuario);
     }
     @PutMapping("/loginusuario")
     public Usuario login (@RequestBody Usuario usuario) {
         return  usuarioService.loginUsuario(usuario);
+    }
+    @DeleteMapping("/usuarios/{id}")
+    public void deletar(@PathVariable long id) {
+
     }
 }
 
