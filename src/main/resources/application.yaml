@@ -1,5 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/financeiro
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    username: postgres
+    password: 81328604
+  jpa:
+    hibernate:
+      ddl-auto: update
