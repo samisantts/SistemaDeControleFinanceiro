@@ -22,28 +22,28 @@ public class UsuarioService {
     }
 
     public Usuario atualizarUsuario(Usuario usuario) {
-        boolean emailPertenceAOutroUsuario = usuarioRepository.existsByEmailAndIdNot(usuario.getEmail(), usuario.getId());
-        if (emailPertenceAOutroUsuario) {
-            throw new RuntimeException("E-mail pertence a outro usuario");
-        }
+
         boolean usuarioExiste = usuarioRepository.existsById(usuario.getId());
         if (!usuarioExiste) {
             throw new RuntimeException("Usuario nao encontrado");
         }
+        boolean emailPertenceAOutroUsuario = usuarioRepository.existsByEmailAndIdNot(usuario.getEmail(), usuario.getId());
+        if (emailPertenceAOutroUsuario) {
+            throw new RuntimeException("E-mail pertence a outro usuario");
+        }
+
         return usuarioRepository.save(usuario);
     }
 
-    public void deletarUsuario(Long id) {
-        boolean usuarioExiste = usuarioRepository.existsById(id);
-        if (!usuarioExiste) {
-            throw new RuntimeException("Id nao encontrado");
+    public Usuario loginUsuario(Usuario usuario) {
+        Usuario usuarioEncontrado = usuarioRepository.findByEmail(usuario.getEmail());
+        if (usuarioEncontrado == null) {
+            throw new RuntimeException("Usuario nao encontrado");
         }
-        usuarioRepository.deleteById(id);
-    }
-    public Usuario login (String email, String senha) {
-        boolean usuarioLogin = usuarioRepository.existsByEmailAndIdNot();
-        if (usuarioLogin) {
+        if (usuario.getSenha().equals(usuarioEncontrado.getSenha())) {
+            return usuarioEncontrado;
+        }
 
-        }
+        throw new  RuntimeException("Senha incorreta");
     }
 }
