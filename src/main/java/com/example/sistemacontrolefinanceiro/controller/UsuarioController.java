@@ -12,27 +12,27 @@ public class UsuarioController {
 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
-
     }
-     @PostMapping ("/usuarios")
+    @PostMapping("/usuarios")
     public Usuario cadastrar(@RequestBody Usuario usuario) {
         return usuarioService.cadastrarUsuario(usuario);
-
     }
     @PostMapping("/atualizarcadastro")
     public Usuario atualizar(@RequestBody Usuario usuario) {
         return usuarioService.atualizarUsuario(usuario);
     }
     @PutMapping("/loginusuario")
-    public Usuario login (@RequestBody Usuario usuario) {
-        return  usuarioService.loginUsuario(usuario);
+    public Usuario login(@RequestBody Usuario usuario) {
+        return usuarioService.loginUsuario(usuario);
     }
+
     @DeleteMapping("/usuarios/{id}")
     public void deletar(@PathVariable long id) {
 
     }
 
-    public Usuario ListarUsuarioPorId (Long id) {
+    @GetMapping("/usuarios/{id}")
+    public Usuario buscarPorId(@PathVariable Long id) {
         return usuarioService.listarUsuarioPorId(id);
     }
 }
