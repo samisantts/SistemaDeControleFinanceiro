@@ -1,8 +1,1 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/financeiro
-    username: postgres
-    password: 81328604
-  jpa:
-    hibernate:
-      ddl-auto: update
+dialect: org.hibernate.dialect.PostgreSQLDialect

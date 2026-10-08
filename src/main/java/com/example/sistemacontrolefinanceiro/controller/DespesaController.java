@@ -1,6 +1,6 @@
 package com.example.sistemacontrolefinanceiro.controller;
 
-public class DespesasController {
+public class DespesaController {
 
 
 

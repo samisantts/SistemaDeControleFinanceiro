@@ -1,4 +1,4 @@
 package com.example.sistemacontrolefinanceiro.service;
 
-public class DespesasService {
+public class DespesaService {
 }
