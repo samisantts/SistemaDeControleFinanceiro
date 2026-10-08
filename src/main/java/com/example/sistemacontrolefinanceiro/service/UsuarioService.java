@@ -54,6 +54,13 @@ public class UsuarioService {
         }
         usuarioRepository.deleteById(id);
     }
+    public Usuario listarUsuarioPorId(Long id) {
+        boolean usuarioExiste = usuarioRepository.existsById(id);
+        if (!usuarioExiste) {
+            throw new RuntimeException("Usuario nao encontrado");
+        }
+        return usuarioRepository.findById(id).get();
+    }
 
 }
 
