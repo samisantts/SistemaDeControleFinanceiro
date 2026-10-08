@@ -31,6 +31,10 @@ public class UsuarioController {
     public void deletar(@PathVariable long id) {
 
     }
+
+    public Usuario ListarUsuarioPorId (Long id) {
+        return usuarioService.listarUsuarioPorId(id);
+    }
 }
 
 
