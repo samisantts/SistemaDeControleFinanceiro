@@ -24,5 +24,6 @@ public class Despesa {
     private String descricao;
     private double valor;
     private String categoria;
+    private long usuarioId;
 
 }
