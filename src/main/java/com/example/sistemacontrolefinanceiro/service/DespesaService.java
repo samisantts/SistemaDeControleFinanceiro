@@ -16,7 +16,7 @@ public class DespesaService {
 
     public Despesa salvar(Despesa despesa) {
         usuarioService.listarUsuarioPorId(despesa.getUsuarioId());
-       return despesaRepository.save(despesa);
+        return despesaRepository.save(despesa);
     }
 
     public Despesa atualizar(Despesa despesa) {
@@ -28,6 +28,12 @@ public class DespesaService {
         usuarioService.listarUsuarioPorId(despesa.getUsuarioId());
         return despesaRepository.save(despesa);
     }
+
+    public void remover(Despesa despesa) {
+        boolean despesaExiste = despesaRepository.existsById(despesa.getId());
+        if (!despesaExiste) {
+            throw new RuntimeException("Despesa nao encontrada");
+        }
+    }
+
 }
-
-
