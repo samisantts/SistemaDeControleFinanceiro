@@ -11,7 +11,9 @@ public class DespesaService {
 
     public DespesaService(DespesaRepository despesaRepository) {
         this.despesaRepository = despesaRepository;
-
     }
 
+    public Despesa salvar(Despesa despesa) {
+        return despesaRepository.save(despesa);
+    }
 }
