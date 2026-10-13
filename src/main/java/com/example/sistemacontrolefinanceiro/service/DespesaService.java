@@ -14,13 +14,13 @@ public class DespesaService {
         this.despesaRepository = despesaRepository;
     }
 
-    public Despesa salvar(Despesa despesa) {
-        usuarioService.listarUsuarioPorId(despesa.getUsuarioId());
-        return despesaRepository.save(despesa);
+    public Despesa salvarDespesa(Despesa despesa) {
+        if (despesa.getValor() <= 0) {
+            throw new RuntimeException("Valor da despesa deve ser maior que zero");
+        }
+        return despesa;
     }
-
-    public Despesa atualizar(Despesa despesa) {
-
+    public Despesa atualizarDespesa (Despesa despesa) {
         boolean despesaExiste = despesaRepository.existsById(despesa.getId());
         if (!despesaExiste) {
             throw new RuntimeException("Despesa nao encontrada");
@@ -34,6 +34,5 @@ public class DespesaService {
         if (!despesaExiste) {
             throw new RuntimeException("Despesa nao encontrada");
         }
-    }
 
 }
