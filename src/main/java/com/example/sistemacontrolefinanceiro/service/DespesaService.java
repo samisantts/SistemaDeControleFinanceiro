@@ -34,5 +34,5 @@ public class DespesaService {
         if (!despesaExiste) {
             throw new RuntimeException("Despesa nao encontrada");
         }
-
+    }
 }
