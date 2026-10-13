@@ -1,5 +1,6 @@
 package com.example.sistemacontrolefinanceiro.service;
 
+import com.example.sistemacontrolefinanceiro.model.Usuario;
 import com.example.sistemacontrolefinanceiro.model.Despesa;
 import com.example.sistemacontrolefinanceiro.repository.DespesaRepository;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,8 @@ public class DespesaService {
         if (despesa.getValor() <= 0) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Valor da despesa deve ser maior que zero");
         }
+        usuarioService.listarUsuarioPorId(despesa.getUsuarioId());
+
         return despesa;
     }
     public Despesa atualizarDespesa (Despesa despesa) {
