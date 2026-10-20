@@ -19,14 +19,12 @@ public class DespesaService {
         this.usuarioService = usuarioService;
     }
 
-
     public Despesa salvarDespesa(Despesa despesa) {
+        usuarioService.listarUsuarioPorId(despesa.getUsuarioId());
         if (despesa.getValor() <= 0) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Valor da despesa deve ser maior que zero");
         }
-        usuarioService.listarUsuarioPorId(despesa.getUsuarioId());
-
-        return despesa;
+        return despesaRepository.save(despesa);
     }
     public Despesa atualizarDespesa (Despesa despesa) {
         boolean despesaExiste = despesaRepository.existsById(despesa.getId());

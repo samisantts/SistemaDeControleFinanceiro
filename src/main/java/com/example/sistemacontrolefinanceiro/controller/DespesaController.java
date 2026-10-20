@@ -4,6 +4,8 @@ import com.example.sistemacontrolefinanceiro.model.Despesa;
 import com.example.sistemacontrolefinanceiro.service.DespesaService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class DespesaController {
 
@@ -28,5 +30,9 @@ public class DespesaController {
     @DeleteMapping("/despesas")
     public void remover(@RequestBody Despesa despesa) {
         despesaService.remover(despesa);
+    }
+    @GetMapping("/usuarios/{usuarioId}/despesas")
+    public List<Despesa> listar(@PathVariable Long usuarioId) {
+        return despesaService.listarDespesas(usuarioId);
     }
 }
