@@ -1,7 +1,9 @@
 package com.example.sistemacontrolefinanceiro.controller;
 
-import com.example.sistemacontrolefinanceiro.repository.DespesaRepository;
+import com.example.sistemacontrolefinanceiro.model.Despesa;
 import com.example.sistemacontrolefinanceiro.service.DespesaService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,7 +16,9 @@ public class DespesaController {
         this.despesaService = despesaService;
 
     }
-
-    public
+    @PostMapping("/despesas")
+    public Despesa salvar(@RequestBody Despesa despesa) {
+        return despesaService.salvarDespesa(despesa);
+    }
 
 }
