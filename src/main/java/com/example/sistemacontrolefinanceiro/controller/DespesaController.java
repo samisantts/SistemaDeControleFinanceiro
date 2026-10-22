@@ -9,8 +9,7 @@ import java.util.List;
 @RestController
 public class DespesaController {
 
-    private DespesaService despesaService;
-
+    private final DespesaService despesaService;
 
     public DespesaController(DespesaService despesaService) {
         this.despesaService = despesaService;
