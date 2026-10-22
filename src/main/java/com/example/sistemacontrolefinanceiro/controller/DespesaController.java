@@ -14,23 +14,20 @@ public class DespesaController {
 
     public DespesaController(DespesaService despesaService) {
         this.despesaService = despesaService;
-
     }
-
-    @PostMapping("/despesas")
+    @PostMapping("/Salvardespesas")
     public Despesa salvar(@RequestBody Despesa despesa) {
         return despesaService.salvarDespesa(despesa);
     }
-
-    @PutMapping("/despesas")
+    @PutMapping("/Atualizardespesas")
     public Despesa atualizar(@RequestBody Despesa despesa) {
         return despesaService.atualizarDespesa(despesa);
     }
-
-    @DeleteMapping("/despesas")
+    @DeleteMapping("/Removerdespesas")
     public void remover(@RequestBody Despesa despesa) {
         despesaService.remover(despesa);
     }
+
     @GetMapping("/usuarios/{usuarioId}/despesas")
     public List<Despesa> listar(@PathVariable Long usuarioId) {
         return despesaService.listarDespesas(usuarioId);

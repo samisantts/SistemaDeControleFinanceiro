@@ -33,7 +33,6 @@ public class UsuarioController {
     public void deletar(@PathVariable long id) {
 
     }
-
     @GetMapping("/usuarios/{id}")
     public Usuario buscarPorId(@PathVariable Long id) {
 

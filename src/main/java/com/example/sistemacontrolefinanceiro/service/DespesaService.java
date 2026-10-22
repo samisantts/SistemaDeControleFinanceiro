@@ -45,4 +45,5 @@ public class DespesaService {
         usuarioService.listarUsuarioPorId(usuarioId);
         return despesaRepository.findByUsuarioId(usuarioId);
     }
+
 }
