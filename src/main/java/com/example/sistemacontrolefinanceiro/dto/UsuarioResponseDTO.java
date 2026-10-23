@@ -1,6 +1,5 @@
 package com.example.sistemacontrolefinanceiro.dto;
 
-import com.example.sistemacontrolefinanceiro.model.Usuario;
 import lombok.Getter;
 import lombok.Setter;
 

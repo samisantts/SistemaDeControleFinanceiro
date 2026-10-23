@@ -15,7 +15,7 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public static Usuario cadastrarUsuario(Usuario usuario) {
+    public Usuario cadastrarUsuario(Usuario usuario) {
         boolean emailJaExistente = usuarioRepository.existsByEmail(usuario.getEmail());
         if (emailJaExistente) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "E-mail ja foi cadastrado");
