@@ -2,7 +2,7 @@
 
 API REST para controlar receitas, despesas e saldo, mostrando quanto entrou, quanto saiu e para onde o dinheiro foi.
 
-> 🚧 **Em desenvolvimento.** Projeto de estudo feito em dupla para praticar back-end com Java e Spring Boot.
+> 🚧 **Em desenvolvimento.* back-end com Java e Spring Boot.
 
 ## 🎯 Objetivo
 
