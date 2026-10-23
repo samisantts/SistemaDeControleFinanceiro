@@ -11,6 +11,6 @@ public class UsuarioResponseDTO {
     private long id;
     private String nome;
     private String email;
-    private String senha;
+
 
 }
