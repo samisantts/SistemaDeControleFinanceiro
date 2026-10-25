@@ -14,8 +14,8 @@ public class UsuarioController {
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
-    @PostMapping("/usuarios")
 
+    @PostMapping("/usuarios")
     public UsuarioResponseDTO cadastrar(@RequestBody UsuarioRequestDTO dto) {
         Usuario usuario = new Usuario();
         usuario.setNome(dto.getNome());
