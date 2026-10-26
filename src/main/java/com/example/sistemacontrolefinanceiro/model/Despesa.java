@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -21,8 +23,10 @@ public class Despesa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
-    private double valor;
-    private String categoria;
+    private BigDecimal valor;
     private long usuarioId;
+    private String descricao;
+    private LocalDate dataInicial;
+    private LocalDate dataFinal;
 
 }

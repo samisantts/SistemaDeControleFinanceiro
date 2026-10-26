@@ -27,11 +27,12 @@ public class DespesaService {
         return despesaRepository.save(despesa);
     }
     public Despesa atualizarDespesa (Despesa despesa) {
+        usuarioService.listarUsuarioPorId(despesa.getUsuarioId());
         boolean despesaExiste = despesaRepository.existsById(despesa.getId());
         if (!despesaExiste) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Despesa nao encontrada");
         }
-        usuarioService.listarUsuarioPorId(despesa.getUsuarioId());
+
         return despesaRepository.save(despesa);
     }
 
