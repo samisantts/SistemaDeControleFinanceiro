@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping ("/Despesas")
 public class DespesaController {
 
     private final DespesaService despesaService;
@@ -13,15 +14,15 @@ public class DespesaController {
     public DespesaController(DespesaService despesaService) {
         this.despesaService = despesaService;
     }
-    @PostMapping("/Salvardespesas")
+    @PostMapping
     public Despesa salvar(@RequestBody Despesa despesa) {
         return despesaService.salvarDespesa(despesa);
     }
-    @PutMapping("/Atualizardespesas")
+    @PutMapping
     public Despesa atualizar(@RequestBody Despesa despesa) {
         return despesaService.atualizarDespesa(despesa);
     }
-    @DeleteMapping("/Removerdespesas")
+    @DeleteMapping
     public void remover(@RequestBody Despesa despesa) {
         despesaService.remover(despesa);
     }
