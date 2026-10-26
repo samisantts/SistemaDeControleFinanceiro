@@ -1,9 +1,6 @@
 package com.example.sistemacontrolefinanceiro.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
@@ -11,12 +8,12 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
+@Entity
 public class Despesa {
 
     @Id
@@ -29,4 +26,12 @@ public class Despesa {
     private LocalDate dataInicial;
     private LocalDate dataFinal;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 }
+

@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Entity
 public class Usuario {
 
     @Id
