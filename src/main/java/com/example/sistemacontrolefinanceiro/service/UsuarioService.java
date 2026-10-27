@@ -40,7 +40,6 @@ public class UsuarioService {
     public Usuario loginUsuario(Usuario usuario) {
         Usuario usuarioEncontrado = usuarioRepository.findByEmail(usuario.getEmail());
         if (usuarioEncontrado == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario nao encontrado");
         }
         if (usuario.getSenha().equals(usuarioEncontrado.getSenha())) {
             return usuarioEncontrado;
@@ -59,7 +58,6 @@ public class UsuarioService {
     public Usuario listarUsuarioPorId(Long id) {
         boolean usuarioExiste = usuarioRepository.existsById(id);
         if (!usuarioExiste) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario nao encontrado");
         }
         return usuarioRepository.findById(id).get();
     }
