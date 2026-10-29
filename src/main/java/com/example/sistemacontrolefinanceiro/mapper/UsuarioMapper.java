@@ -14,4 +14,12 @@ public class UsuarioMapper {
         usuario.setSenha(dto.getSenha());
         return usuario;
     }
+    public UsuarioRequestDTO toResponse (Usuario usuario) {
+        UsuarioRequestDTO Resposta = new UsuarioRequestDTO();
+        Resposta.setNome(usuario.getNome());
+        Resposta.setEmail(usuario.getEmail());
+        Resposta.setSenha(usuario.getSenha());
+        return Resposta;
+
+    }
 }
