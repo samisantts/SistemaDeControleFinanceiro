@@ -2,9 +2,8 @@ package com.example.sistemacontrolefinanceiro.service;
 
 import com.example.sistemacontrolefinanceiro.model.Usuario;
 import com.example.sistemacontrolefinanceiro.repository.UsuarioRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
+
 
 @Service
 public class UsuarioService {
@@ -51,7 +50,6 @@ public class UsuarioService {
     public Usuario listarUsuarioPorId(Long id) {
         boolean usuarioExiste = usuarioRepository.existsById(id);
         if (!usuarioExiste) {
-
         }
         return usuarioRepository.findById(id).get();
     }

@@ -1,6 +1,7 @@
 package com.example.sistemacontrolefinanceiro.mapper;
 
 import com.example.sistemacontrolefinanceiro.dto.UsuarioRequestDTO;
+import com.example.sistemacontrolefinanceiro.dto.UsuarioResponseDTO;
 import com.example.sistemacontrolefinanceiro.model.Usuario;
 import org.springframework.stereotype.Component;
 
@@ -14,12 +15,12 @@ public class UsuarioMapper {
         usuario.setSenha(dto.getSenha());
         return usuario;
     }
-    public UsuarioRequestDTO toResponse (Usuario usuario) {
-        UsuarioRequestDTO Resposta = new UsuarioRequestDTO();
-        Resposta.setNome(usuario.getNome());
-        Resposta.setEmail(usuario.getEmail());
-        Resposta.setSenha(usuario.getSenha());
-        return Resposta;
+    public UsuarioResponseDTO toResponse(Usuario usuario) {
+        UsuarioResponseDTO resposta = new UsuarioResponseDTO();
+        resposta.setId(usuario.getId());
+        resposta.setNome(usuario.getNome());
+        resposta.setEmail(usuario.getEmail());
+        return resposta;
 
     }
 }
