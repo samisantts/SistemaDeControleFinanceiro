@@ -1,6 +1,9 @@
 package com.example.sistemacontrolefinanceiro.controller;
 
 
+import com.example.sistemacontrolefinanceiro.dto.UsuarioRequestDTO;
+import com.example.sistemacontrolefinanceiro.dto.UsuarioResponseDTO;
+import com.example.sistemacontrolefinanceiro.mapper.UsuarioMapper;
 import com.example.sistemacontrolefinanceiro.model.Usuario;
 import com.example.sistemacontrolefinanceiro.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +14,21 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
     private UsuarioService usuarioService;
+    private UsuarioMapper usuarioMapper;
 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
+    //O JSON chega e o @RequestBody vira um UsuarioRequestDTO.
+    //O controller chama usuarioMapper.toEntity(dto) e recebe um Usuario.
+    //O service recebe esse Usuario, aplica as regras e salva.
+    //O controller pega o Usuario salvo, chama usuarioMapper.toResponse(salvo) e devolve o DTO.
+
     @PostMapping
-    public Usuario cadastrar(@RequestBody Usuario usuario) {
-        return usuarioService.cadastrarUsuario(usuario);
+    public UsuarioResponseDTO cadastrar(@RequestBody UsuarioRequestDTO dto){
+        Usuario salvo = usuarioService.cadastrarUsuario(usuarioMapper.toEntity(dto));
+        return usuarioMapper.toResponse(salvo);
     }
 
     @PutMapping

@@ -41,7 +41,6 @@ public class DespesaService {
 
         boolean despesaExiste = despesaRepository.existsById(despesa.getId());
         if (!despesaExiste) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Despesa nao encontrada");
         }
         return despesaRepository.save(despesa);
     }
@@ -49,7 +48,6 @@ public class DespesaService {
     public void remover(Despesa despesa) {
         boolean despesaExiste = despesaRepository.existsById(despesa.getId());
         if (!despesaExiste) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Despesa nao encontrada");
         }
         despesaRepository.deleteById(despesa.getId());
     }
@@ -62,7 +60,6 @@ public class DespesaService {
     public Despesa buscarPorId(Long id) {
         boolean despesaExiste = despesaRepository.existsById(id);
         if (!despesaExiste) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Despesa nao encontrada");
         }
         return despesaRepository.findById(id).get();
     }

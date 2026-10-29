@@ -7,6 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping ("/Despesas")
+
 public class DespesaController {
 
     private final DespesaService despesaService;
@@ -14,6 +15,7 @@ public class DespesaController {
     public DespesaController(DespesaService despesaService) {
         this.despesaService = despesaService;
     }
+
     @PostMapping
     public Despesa salvar(@RequestBody Despesa despesa) {
         return despesaService.salvarDespesa(despesa);
