@@ -34,14 +34,16 @@ public class UsuarioService {
         }
         return usuarioRepository.save(usuario);
     }
+
     public Usuario loginUsuario(Usuario usuario) {
         Usuario usuarioEncontrado = usuarioRepository.findByEmail(usuario.getEmail());
         if (usuarioEncontrado == null) {
-
+            return null;
+        } else if (usuarioEncontrado.getSenha().equals(usuario.getSenha())) {
+            return usuarioEncontrado;
+        } else  {
+            return null;
         }
-        if (usuario.getSenha().equals(usuarioEncontrado.getSenha())) {
-        }
-        return usuarioEncontrado;
     }
     public void deletarUsuario(Long id) {
         boolean usuarioExiste = usuarioRepository.existsById(id);
