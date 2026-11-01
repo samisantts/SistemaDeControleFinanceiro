@@ -1,6 +1,5 @@
 package com.example.sistemacontrolefinanceiro.controller;
 
-
 import com.example.sistemacontrolefinanceiro.dto.UsuarioRequestDTO;
 import com.example.sistemacontrolefinanceiro.dto.UsuarioResponseDTO;
 import com.example.sistemacontrolefinanceiro.mapper.UsuarioMapper;
@@ -13,44 +12,44 @@ import org.springframework.web.bind.annotation.*;
 
 public class UsuarioController {
 
-    private UsuarioService usuarioService;
-    private UsuarioMapper usuarioMapper;
+    private final UsuarioService usuarioService;
+    private final UsuarioMapper usuarioMapper;
 
-    public UsuarioController(UsuarioService usuarioService) {
+    public UsuarioController(UsuarioService usuarioService, UsuarioMapper usuarioMapper) {
         this.usuarioService = usuarioService;
+        this.usuarioMapper = usuarioMapper;
     }
 
-    //O JSON chega e o @RequestBody vira um UsuarioRequestDTO.
-    //O controller chama usuarioMapper.toEntity(dto) e recebe um Usuario.
-    //O service recebe esse Usuario, aplica as regras e salva.
-    //O controller pega o Usuario salvo, chama usuarioMapper.toResponse(salvo) e devolve o DTO.
+    // POST /usuarios/cadastrar
+    @PostMapping("/cadastrar")
+    public UsuarioResponseDTO cadastrarUsuario(@RequestBody UsuarioRequestDTO dto) {
+        Usuario usuario = usuarioMapper.toEntity(dto);
+        Usuario salvo = usuarioService.cadastrarUsuario(usuario);
 
-    @PostMapping
-    public UsuarioResponseDTO cadastrar(@RequestBody UsuarioRequestDTO dto){
-        Usuario salvo = usuarioService.cadastrarUsuario(usuarioMapper.toEntity(dto));
         return usuarioMapper.toResponse(salvo);
     }
 
-    @PutMapping
-    public Usuario atualizar(@RequestBody Usuario usuario) {
+    // PUT /usuarios/atualizar
+    @PutMapping("/atualizar")
+    public Usuario atualizarUsuario(@RequestBody Usuario usuario) {
         return usuarioService.atualizarUsuario(usuario);
     }
 
+    // POST /usuarios/login
     @PostMapping("/login")
-    public Usuario login(@RequestBody Usuario usuario) {
+    public Usuario loginUsuario(@RequestBody Usuario usuario) {
         return usuarioService.loginUsuario(usuario);
     }
 
-    @GetMapping("/{id}")
-    public Usuario buscarPorId(@PathVariable Long id) {
+    // GET /usuarios/buscar/{id}
+    @GetMapping("/buscar/{id}")
+    public Usuario buscarUsuarioPorId(@PathVariable Long id) {
         return usuarioService.listarUsuarioPorId(id);
     }
 
-    @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
+    // DELETE /usuarios/deletar/{id}
+    @DeleteMapping("/deletar/{id}")
+    public void deletarUsuario(@PathVariable Long id) {
         usuarioService.deletarUsuario(id);
     }
 }
-
-
-
