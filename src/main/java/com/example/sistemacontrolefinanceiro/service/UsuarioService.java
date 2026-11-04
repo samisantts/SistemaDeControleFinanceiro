@@ -30,7 +30,6 @@ public class UsuarioService {
         }
         boolean emailPertenceAOutroUsuario = usuarioRepository.existsByEmailAndIdNot(usuario.getEmail(), usuario.getId());
         if (emailPertenceAOutroUsuario) {
-
         }
         return usuarioRepository.save(usuario);
     }

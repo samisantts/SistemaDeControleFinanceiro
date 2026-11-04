@@ -17,8 +17,8 @@ public class Despesa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
+
     private BigDecimal valor;
     private String descricao;
     private LocalDate dataInicial;
