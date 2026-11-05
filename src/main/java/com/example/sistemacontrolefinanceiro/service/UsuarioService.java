@@ -21,6 +21,10 @@ public class UsuarioService {
         boolean emailJaExistente = usuarioRepository.existsByEmail(usuario.getEmail());
         if (emailJaExistente) {
         }
+
+        if (usuario.getSenha() == null || usuario.getSenha().isBlank()) {
+
+        }
         return usuarioRepository.save(usuario);
     }
 
@@ -37,13 +41,14 @@ public class UsuarioService {
     public Usuario loginUsuario(Usuario usuario) {
         Usuario usuarioEncontrado = usuarioRepository.findByEmail(usuario.getEmail());
         if (usuarioEncontrado == null) {
-            return null;
         } else if (usuarioEncontrado.getSenha().equals(usuario.getSenha())) {
             return usuarioEncontrado;
-        } else  {
+        } else {
             return null;
         }
+        return usuarioEncontrado;
     }
+
     public void deletarUsuario(Long id) {
         boolean usuarioExiste = usuarioRepository.existsById(id);
         if (!usuarioExiste) {
