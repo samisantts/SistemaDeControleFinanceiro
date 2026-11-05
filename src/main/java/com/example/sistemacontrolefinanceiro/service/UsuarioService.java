@@ -20,10 +20,11 @@ public class UsuarioService {
     public Usuario cadastrarUsuario(Usuario usuario) {
         boolean emailJaExistente = usuarioRepository.existsByEmail(usuario.getEmail());
         if (emailJaExistente) {
+            return null;
         }
 
         if (usuario.getSenha() == null || usuario.getSenha().isBlank()) {
-
+             return null;
         }
         return usuarioRepository.save(usuario);
     }
