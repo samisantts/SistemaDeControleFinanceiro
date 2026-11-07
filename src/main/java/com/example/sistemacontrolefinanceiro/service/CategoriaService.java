@@ -13,4 +13,6 @@ public class CategoriaService {
         this.categoriaRepository = categoriaRepository;
         this.usuarioService = usuarioService;
     }
+
+
 }

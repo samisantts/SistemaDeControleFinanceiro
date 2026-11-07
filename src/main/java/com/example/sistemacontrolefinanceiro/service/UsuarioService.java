@@ -42,23 +42,27 @@ public class UsuarioService {
     public Usuario loginUsuario(Usuario usuario) {
         Usuario usuarioEncontrado = usuarioRepository.findByEmail(usuario.getEmail());
         if (usuarioEncontrado == null) {
-        } else if (usuarioEncontrado.getSenha().equals(usuario.getSenha())) {
-            return usuarioEncontrado;
-        } else {
             return null;
         }
-        return usuarioEncontrado;
+        else if (usuarioEncontrado.getSenha().equals(usuario.getSenha())) {
+            return usuarioEncontrado;
+        }
+        else {
+            return null;
+        }
     }
 
     public void deletarUsuario(Long id) {
         boolean usuarioExiste = usuarioRepository.existsById(id);
         if (!usuarioExiste) {
+
         }
         usuarioRepository.deleteById(id);
     }
     public Usuario listarUsuarioPorId(Long id) {
         boolean usuarioExiste = usuarioRepository.existsById(id);
         if (!usuarioExiste) {
+
         }
         return usuarioRepository.findById(id).get();
     }
