@@ -5,4 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoriaRepository extends JpaRepository<Usuario, Long> {
 
+
+    boolean existsByEmail(String Categoria);
+
 }

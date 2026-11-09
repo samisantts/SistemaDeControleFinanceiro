@@ -1,5 +1,6 @@
 package com.example.sistemacontrolefinanceiro.service;
 
+import com.example.sistemacontrolefinanceiro.model.Categoria;
 import com.example.sistemacontrolefinanceiro.repository.CategoriaRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +15,8 @@ public class CategoriaService {
         this.usuarioService = usuarioService;
     }
 
+    public Categoria SalvarCategoria() {
+
+    }
 
 }

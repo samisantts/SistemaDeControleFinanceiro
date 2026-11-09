@@ -1,5 +1,6 @@
 package com.example.sistemacontrolefinanceiro.model;
 
+import com.example.sistemacontrolefinanceiro.enums.CategoriaEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,8 +25,11 @@ public class Despesa {
     private LocalDate dataInicial;
     private LocalDate dataFinal;
     private Long usuarioId;
+    @Enumerated(EnumType.STRING)
+    private CategoriaEnum categoriaEnum;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
+
 }
