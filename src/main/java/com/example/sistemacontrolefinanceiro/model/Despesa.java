@@ -28,8 +28,5 @@ public class Despesa {
     @Enumerated(EnumType.STRING)
     private CategoriaEnum categoriaEnum;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
-    private Categoria categoria;
 
 }

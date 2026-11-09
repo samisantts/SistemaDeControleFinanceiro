@@ -15,7 +15,7 @@ public class CategoriaService {
         this.usuarioService = usuarioService;
     }
 
-    public Categoria SalvarCategoria() {
+    public Categoria SalvarCategoria(Categoria categoria) {
 
     }
 
