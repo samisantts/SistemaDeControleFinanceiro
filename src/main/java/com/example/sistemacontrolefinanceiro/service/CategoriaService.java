@@ -22,6 +22,8 @@ public class CategoriaService {
 
     public Categoria salvarCategoria(Categoria categoria) {
 
+        usuarioService.listarUsuarioPorId(categoria.getUsuario().getId());
+
         String categoriaNome = categoria.getNome();
 
         try {
@@ -32,7 +34,9 @@ public class CategoriaService {
 
         } catch (IllegalArgumentException e) {
             throw new CategoriaNaoExisteException("Categoria não encontrada!");
+
         }
+
 
         return categoriaRepository.save(categoria);
     }
