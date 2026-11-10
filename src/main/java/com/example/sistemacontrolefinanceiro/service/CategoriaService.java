@@ -1,6 +1,7 @@
 package com.example.sistemacontrolefinanceiro.service;
 
 import com.example.sistemacontrolefinanceiro.enums.CategoriaEnum;
+import com.example.sistemacontrolefinanceiro.exception.CategoriaNaoExisteException;
 import com.example.sistemacontrolefinanceiro.model.Categoria;
 import com.example.sistemacontrolefinanceiro.repository.CategoriaRepository;
 import org.springframework.stereotype.Service;
@@ -19,24 +20,23 @@ public class CategoriaService {
         this.categoriaRepository = categoriaRepository;
     }
 
-    public Categoria SalvarCategoria(Categoria categoria) {
+    public Categoria salvarCategoria(Categoria categoria) {
 
         String categoriaNome = categoria.getNome();
 
-        CategoriaEnum categoriaEnum;
-
         try {
-            categoriaEnum = Enum.valueOf(
+            CategoriaEnum categoriaEnum = Enum.valueOf(
                     CategoriaEnum.class,
                     categoriaNome.trim().toUpperCase()
             );
 
         } catch (IllegalArgumentException e) {
+            throw new CategoriaNaoExisteException("Categoria não encontrada!");
         }
-        return categoria;
+
+        return categoriaRepository.save(categoria);
     }
 }
-
 
 
 

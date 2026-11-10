@@ -1,9 +1,12 @@
 package com.example.sistemacontrolefinanceiro.repository;
 
-import com.example.sistemacontrolefinanceiro.model.Usuario;
+import com.example.sistemacontrolefinanceiro.model.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CategoriaRepository extends JpaRepository<Usuario, Long> {
+
+@Repository
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
 
     boolean existsByEmail(String Categoria);
