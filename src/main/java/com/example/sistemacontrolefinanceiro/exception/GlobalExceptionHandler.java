@@ -32,4 +32,5 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
         public ResponseEntity<String> tratarDespesaNaoEncontrada(DespesaNaoEncontradaException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         }
+
     }

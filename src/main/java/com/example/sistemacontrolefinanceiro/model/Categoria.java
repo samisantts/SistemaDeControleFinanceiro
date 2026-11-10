@@ -19,8 +19,6 @@ public class Categoria {
 
     private String nome;
     private String descricao;
-    private Long usuarioId;
-
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
