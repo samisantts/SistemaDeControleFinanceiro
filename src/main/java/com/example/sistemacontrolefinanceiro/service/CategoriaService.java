@@ -36,8 +36,6 @@ public class CategoriaService {
             throw new CategoriaNaoExisteException("Categoria não encontrada!");
 
         }
-
-
         return categoriaRepository.save(categoria);
     }
 }
