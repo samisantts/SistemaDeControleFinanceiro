@@ -56,27 +56,34 @@ src/main/java/com/example/sistemacontrolefinanceiro/
 │   ├── UsuarioController.java
 │   ├── DespesaController.java
 │   └── CategoriaController.java
+
 ├── service/
 │   ├── UsuarioService.java
 │   ├── DespesaService.java
 │   └── CategoriaService.java
+
 ├── repository/
 │   ├── UsuarioRepository.java
 │   └── DespesaRepository.java
+
 ├── model/
 │   ├── Usuario.java
 │   ├── Despesa.java
 │   └── Categoria.java
+
 ├── dto/
 │   ├── UsuarioRequestDTO.java
 │   └── UsuarioResponseDTO.java
+
 ├── mapper/
 │   ├── UsuarioMapper.java
 │   └── DespesaMapper.java
+
 ├── enums/
 │   ├── CategoriaEnum.java
 │   ├── StatusPagamentoEnum.java
 │   └── FormaPagamentoEnum.java
+
 └── exception/
 ├── GlobalExceptionHandler.java
 ├── UsuarioJaExisteException.java
@@ -84,6 +91,7 @@ src/main/java/com/example/sistemacontrolefinanceiro/
 ├── SenhaIncorretaException.java
 ├── CategoriaNaoExisteException.java
 └── DespesaNaoEncontradaException.java
+
 Modelo de dados
 Usuario
 Campo	Tipo	Descrição
