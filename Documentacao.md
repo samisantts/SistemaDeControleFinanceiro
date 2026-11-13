@@ -56,27 +56,55 @@ src/main/java/com/example/sistemacontrolefinanceiro/
 │   ├── UsuarioController.java
 │   ├── DespesaController.java
 │   └── CategoriaController.java
+<<<<<<< HEAD
+=======
+
+>>>>>>> 59bc937952c31fb574b48842995a6aeae79bbc8f
 ├── service/
 │   ├── UsuarioService.java
 │   ├── DespesaService.java
 │   └── CategoriaService.java
+<<<<<<< HEAD
 ├── repository/
 │   ├── UsuarioRepository.java
 │   └── DespesaRepository.java
+=======
+
+├── repository/
+│   ├── UsuarioRepository.java
+│   └── DespesaRepository.java
+
+>>>>>>> 59bc937952c31fb574b48842995a6aeae79bbc8f
 ├── model/
 │   ├── Usuario.java
 │   ├── Despesa.java
 │   └── Categoria.java
+<<<<<<< HEAD
 ├── dto/
 │   ├── UsuarioRequestDTO.java
 │   └── UsuarioResponseDTO.java
 ├── mapper/
 │   ├── UsuarioMapper.java
 │   └── DespesaMapper.java
+=======
+
+├── dto/
+│   ├── UsuarioRequestDTO.java
+│   └── UsuarioResponseDTO.java
+
+├── mapper/
+│   ├── UsuarioMapper.java
+│   └── DespesaMapper.java
+
+>>>>>>> 59bc937952c31fb574b48842995a6aeae79bbc8f
 ├── enums/
 │   ├── CategoriaEnum.java
 │   ├── StatusPagamentoEnum.java
 │   └── FormaPagamentoEnum.java
+<<<<<<< HEAD
+=======
+
+>>>>>>> 59bc937952c31fb574b48842995a6aeae79bbc8f
 └── exception/
 ├── GlobalExceptionHandler.java
 ├── UsuarioJaExisteException.java
@@ -84,6 +112,10 @@ src/main/java/com/example/sistemacontrolefinanceiro/
 ├── SenhaIncorretaException.java
 ├── CategoriaNaoExisteException.java
 └── DespesaNaoEncontradaException.java
+<<<<<<< HEAD
+=======
+
+>>>>>>> 59bc937952c31fb574b48842995a6aeae79bbc8f
 Modelo de dados
 Usuario
 Campo	Tipo	Descrição
@@ -97,6 +129,10 @@ id	Long	Chave primária, gerada automaticamente
 valor	BigDecimal	Valor gasto
 descricao	String	Descrição da despesa
 dataInicial	LocalDate	Data inicial
+<<<<<<< HEAD
+=======
+dataFinal	LocalDate	Data final
+>>>>>>> 59bc937952c31fb574b48842995a6aeae79bbc8f
 usuarioId	Long	Id do usuário dono da despesa
 categoriaEnum	CategoriaEnum	Categoria (gravada como texto no banco)
 Categoria
@@ -229,4 +265,8 @@ A senha ainda é salva e comparada em texto puro (sem criptografia)
 atualizar, login e buscar ainda devolvem a entidade Usuario completa, incluindo a senha
 Não há autenticação nem autorização: os endpoints são abertos
 CategoriaController sem endpoints; DespesaMapper e FormaPagamentoEnum vazios
+<<<<<<< HEAD
 Nomes de rotas inconsistentes (/Despesas com maiúscula, DELETE de despesa recebendo o objeto no corpo)
+=======
+Nomes de rotas inconsistentes (/Despesas com maiúscula, DELETE de despesa recebendo o objeto no corpo)
+>>>>>>> 59bc937952c31fb574b48842995a6aeae79bbc8f
