@@ -31,20 +31,27 @@ public class UsuarioController {
 
     // PUT /usuarios/atualizar
     @PutMapping("/atualizar")
-    public Usuario atualizarUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.atualizarUsuario(usuario);
+    public UsuarioResponseDTO atualizarUsuario(@RequestBody UsuarioRequestDTO dto) {
+       Usuario usuario = usuarioMapper.toEntity(dto);
+       Usuario atualizado = usuarioService.atualizarUsuario(usuario);
+
+       return usuarioMapper.toResponse(atualizado);
     }
 
     // POST /usuarios/login
     @PostMapping("/login")
-    public Usuario loginUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.loginUsuario(usuario);
+    public UsuarioResponseDTO loginUsuario(@RequestBody UsuarioRequestDTO dto) {
+        Usuario usuario = usuarioMapper.toEntity(dto);
+        Usuario login = usuarioService.loginUsuario(usuario);
+
+        return usuarioMapper.toResponse(login);
     }
 
     // GET /usuarios/buscar/{id}
     @GetMapping("/buscar/{id}")
-    public Usuario buscarUsuarioPorId(@PathVariable Long id) {
-        return usuarioService.listarUsuarioPorId(id);
+    public UsuarioResponseDTO buscarUsuarioPorId(@PathVariable Long id) {
+        Usuario usuario = usuarioService.listarUsuarioPorId(id);
+        return usuarioMapper.toResponse(usuario);
     }
 
     // DELETE /usuarios/deletar/{id}
