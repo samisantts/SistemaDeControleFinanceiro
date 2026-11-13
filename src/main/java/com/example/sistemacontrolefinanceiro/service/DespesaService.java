@@ -11,10 +11,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+
 @Service
 public class DespesaService {
 
 
+    //Onde Ocorre toda a regra de negocio
     private DespesaRepository despesaRepository;
     private UsuarioService usuarioService;
 

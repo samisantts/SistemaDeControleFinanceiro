@@ -5,6 +5,9 @@ import com.example.sistemacontrolefinanceiro.service.DespesaService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+// Controller: recebe as requisições HTTP e devolve as respostas.
+// Não tem regra de negócio, só repassa o trabalho para Despesa.
+
 @RestController
 @RequestMapping ("/Despesas")
 

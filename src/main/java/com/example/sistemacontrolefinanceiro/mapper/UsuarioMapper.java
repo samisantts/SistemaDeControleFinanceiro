@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UsuarioMapper {
 
+    // Entrada: converte o DTO recebido do cliente em entidade
     public Usuario toEntity (UsuarioRequestDTO dto) {
         Usuario usuario = new Usuario();
         usuario.setNome(dto.getNome());
@@ -16,6 +17,7 @@ public class UsuarioMapper {
         return usuario;
     }
 
+    // Saída: converte a entidade em DTO de resposta (sem a senha)
     public UsuarioResponseDTO toResponse(Usuario usuario) {
         UsuarioResponseDTO resposta = new UsuarioResponseDTO();
         resposta.setId(usuario.getId());

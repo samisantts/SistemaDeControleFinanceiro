@@ -10,7 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-
+/**
+ * Camada de serviço de usuários.
+ *
+ * <p>Concentra as regras de negócio, como impedir o cadastro de email
+ * duplicado e validar a senha no login.
+ */
 @Service
 public class UsuarioService {
 
@@ -21,7 +26,6 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
         this.usuarioMapper = usuarioMapper;
     }
-
 
     public Usuario cadastrarUsuario(Usuario usuario) {
         boolean emailJaExistente = usuarioRepository.existsByEmail(usuario.getEmail());

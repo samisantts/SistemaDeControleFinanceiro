@@ -7,6 +7,10 @@ import com.example.sistemacontrolefinanceiro.model.Usuario;
 import com.example.sistemacontrolefinanceiro.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
 
+
+// Controller: recebe as requisições HTTP e devolve as respostas.
+// Não tem regra de negócio, só repassa o trabalho para o service.
+
 @RestController
 @RequestMapping("/usuarios")
 
@@ -21,6 +25,7 @@ public class UsuarioController {
     }
 
     // POST /usuarios/cadastrar
+    //Controle de saida e entrada de dados
     @PostMapping("/cadastrar")
     public UsuarioResponseDTO cadastrarUsuario(@RequestBody UsuarioRequestDTO dto) {
         Usuario usuario = usuarioMapper.toEntity(dto);
@@ -30,6 +35,7 @@ public class UsuarioController {
     }
 
     // PUT /usuarios/atualizar
+    //Controle de saida e entrada de dados
     @PutMapping("/atualizar")
     public UsuarioResponseDTO atualizarUsuario(@RequestBody UsuarioRequestDTO dto) {
        Usuario usuario = usuarioMapper.toEntity(dto);
@@ -39,6 +45,7 @@ public class UsuarioController {
     }
 
     // POST /usuarios/login
+    //Controle de saida e entrada de dados
     @PostMapping("/login")
     public UsuarioResponseDTO loginUsuario(@RequestBody UsuarioRequestDTO dto) {
         Usuario usuario = usuarioMapper.toEntity(dto);
@@ -48,13 +55,14 @@ public class UsuarioController {
     }
 
     // GET /usuarios/buscar/{id}
+    //Controle de saida e entrada de dados
     @GetMapping("/buscar/{id}")
     public UsuarioResponseDTO buscarUsuarioPorId(@PathVariable Long id) {
         Usuario usuario = usuarioService.listarUsuarioPorId(id);
         return usuarioMapper.toResponse(usuario);
     }
 
-    // DELETE /usuarios/deletar/{id}
+    // DELETE /usuarios/deletar/{id}\
     @DeleteMapping("/deletar/{id}")
     public void deletarUsuario(@PathVariable Long id) {
         usuarioService.deletarUsuario(id);

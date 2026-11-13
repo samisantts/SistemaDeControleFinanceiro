@@ -11,12 +11,11 @@ public class CategoriaService {
 
     private CategoriaRepository categoriaRepository;
     private UsuarioService usuarioService;
-    private CategoriaEnum categoriaEnum;
+
 
 
     public CategoriaService(CategoriaRepository categoriaRepository, UsuarioService usuarioService, CategoriaEnum categoriaEnum) {
         this.usuarioService = usuarioService;
-        this.categoriaEnum = categoriaEnum;
         this.categoriaRepository = categoriaRepository;
     }
 
